@@ -42,11 +42,6 @@ const newTea = (req, res) => {
       const newTea = new Tea({
         name: req.body.name,
         image: req.file.path,
-        description: req.body.description,
-        keywords: req.body.keywords,
-        origin: req.body.origin,
-        brew_time: req.body.brew_time,
-        temperature: req.body.temperature,
       });
 
       // save to database
