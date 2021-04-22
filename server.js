@@ -27,7 +27,7 @@ app.route("/").get(function (req, res) {
 
 //establish connection to database
 mongoose.connect(
-  process.env.MONGODB_URI,
+  'mongodb+srv://admin:testapi@cluster0.cw97v.mongodb.net/tea',
   {
     useFindAndModify: false,
     useUnifiedTopology: true,
