@@ -24,7 +24,7 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 
  //establish connection to database
  mongoose.connect(
-     process.env.MONGODB_URI,
+    'mongodb+srv://admin:admin@cluster0.cw97v.mongodb.net/Data?retryWrites=true&w=majority',
      {  useFindAndModify: false, 
         useUnifiedTopology: true, 
         useNewUrlParser: true, 
