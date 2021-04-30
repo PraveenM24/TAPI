@@ -1,8 +1,11 @@
 const express = require ('express');
-var cors = require('cors');
+const cors = require('cors');
 const routes = require('./routes/route'); // import the routes
 const mongoose = require('mongoose'); //import mongoose
 const app = express();
+app.use(cors())
+app.options('*', cors())
+
 const helmet = require('helmet');
 const compression = require('compression');
 
@@ -10,7 +13,7 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(helmet());
-app.use(cors())
+
 app.use('/', cors(), routes); //to use the routes
 app.route('/', cors())
   .get(function (req, res) {
