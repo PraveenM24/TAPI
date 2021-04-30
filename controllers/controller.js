@@ -33,7 +33,7 @@ const newData = (req, res) => {
             //create a new tea object using the Tea model and req.body
             const newData = new Data({
                 name:req.body.name,
-                image: req.file.path, // placeholder for now
+                image: req.file.path, 
                 content: req.body.content,
                 created: req.body.created,
             })
