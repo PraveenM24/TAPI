@@ -3,7 +3,6 @@ const cors = require('cors');
 const routes = require('./routes/route'); // import the routes
 const mongoose = require('mongoose'); //import mongoose
 const app = express();
-app.use(cors())
 
 require('dotenv').config();
 
@@ -13,7 +12,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 })
-
+app.use(cors())
 app.use('/', routes); //to use the routes
 app.route('/')
   .get(function (req, res) {
