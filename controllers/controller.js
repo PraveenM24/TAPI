@@ -25,6 +25,8 @@ const getAllData = (req, res) => {
 
 //POST tea
 const newData = (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     //check if the tea name already exists in db
     Data.findOne({name:req.body.name},(data)=>{
 
