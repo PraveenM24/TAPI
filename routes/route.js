@@ -7,7 +7,7 @@ app.use(cors())
 app.options('*', cors())
 
 router.get('/api', dataController.getAllData);
-router.post('/api', dataController.uploadImg, dataController.newData);
+router.post('/api', cors(), dataController.uploadImg, dataController.newData);
 router.delete('/api', dataController.deleteAllData);
 
 router.get('/api/:name', dataController.getOneData);
