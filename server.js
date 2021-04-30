@@ -5,19 +5,14 @@ const mongoose = require('mongoose'); //import mongoose
 const app = express();
 app.use(cors())
 
-const helmet = require('helmet');
-const compression = require('compression');
-
 require('dotenv').config();
 
+app.use(express.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 })
-
-app.use(express.json());
-app.use(helmet());
 
 app.use('/', routes); //to use the routes
 app.route('/')
@@ -25,7 +20,6 @@ app.route('/')
     res.sendFile(process.cwd() + '/index.html');
 });
 app.use('/uploads', express.static('./uploads'));   
-app.use(compression());
 
 const listener = app.listen(process.env.PORT || 3000, () => {
     console.log('Your app is listening on port ' + listener.address().port)
