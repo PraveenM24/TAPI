@@ -11,12 +11,12 @@ require('dotenv').config();
 app.use(express.json());
 app.use(helmet());
 app.use(cors())
-app.use('/', routes); //to use the routes
-app.route('/')
+app.use('/', cors(), routes); //to use the routes
+app.route('/', cors())
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/index.html');
 });
-app.use('/uploads', express.static('./uploads'));   
+app.use('/uploads', cors(), express.static('./uploads'));   
 app.use(compression());
 
 const listener = app.listen(process.env.PORT || 3000, () => {
